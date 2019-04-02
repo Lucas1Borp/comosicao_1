@@ -1,7 +1,6 @@
 package entidades;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import entidades.enums.ClasseColaborador;
