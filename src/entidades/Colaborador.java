@@ -1,6 +1,7 @@
 package entidades;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import entidades.enums.ClasseColaborador;
@@ -65,6 +66,21 @@ public class Colaborador {
 
 	public void setContratos(List<HoraContrato> contratos) {
 		this.contratos = contratos;
+	}
+
+	public Double rendimento(int ano, int mes) {
+		double soma = salarioBase;
+		Calendar calendario = Calendar.getInstance();
+		for (HoraContrato c : contratos) {
+			calendario.setTime(c.getData());
+			int c_ano = calendario.get(Calendar.YEAR);
+			int c_mes = 1 + calendario.get(Calendar.MONTH);
+			if (ano == c_ano && mes == c_mes) {
+				soma += c.totalContratos();
+			}
+		}
+
+		return soma;
 	}
 
 }
